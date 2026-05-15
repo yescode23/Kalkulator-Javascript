@@ -30,8 +30,27 @@ operatorButtons.forEach(function(button) {
 
 equalsButton.addEventListener('click', function() {
     secondNumber = display.innerText;
+
     if (operator === '+') {
         let plus = Number(firstNumber) + Number(secondNumber);
+        result = plus;
+        display.innerText = result;
+    }
+    
+    if (operator === '-') {
+        let plus = Number(firstNumber) - Number(secondNumber);
+        result = plus;
+        display.innerText = result;
+    }
+
+    if (operator === '/') {
+        let plus = Number(firstNumber) / Number(secondNumber);
+        result = plus;
+        display.innerText = result;
+    }
+
+    if (operator === 'x') {
+        let plus = Number(firstNumber) * Number(secondNumber);
         result = plus;
         display.innerText = result;
     }
