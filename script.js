@@ -22,7 +22,13 @@ numberButtons.forEach(function(button) {
 
 operatorButtons.forEach(function(button) {
     button.addEventListener('click', function() {
-        firstNumber = display.innerText;
+        if (operator !== '') {
+            secondNumber = display.innerText;
+            calculate();
+            firstNumber = result;
+        } else {
+            firstNumber = display.innerText;
+        }
         operator = button.innerText;
         display.innerText = '0';
     });
@@ -30,32 +36,35 @@ operatorButtons.forEach(function(button) {
 
 equalsButton.addEventListener('click', function() {
     secondNumber = display.innerText;
-
-    if (operator === '+') {
-        let plus = Number(firstNumber) + Number(secondNumber);
-        result = plus;
-        display.innerText = result;
-    }
-    
-    if (operator === '-') {
-        let plus = Number(firstNumber) - Number(secondNumber);
-        result = plus;
-        display.innerText = result;
-    }
-
-    if (operator === '/') {
-        let plus = Number(firstNumber) / Number(secondNumber);
-        result = plus;
-        display.innerText = result;
-    }
-
-    if (operator === 'x') {
-        let plus = Number(firstNumber) * Number(secondNumber);
-        result = plus;
-        display.innerText = result;
-    }
+    calculate();
+    display.innerText = result;
+    firstNumber = result;
+    operator = '';
 });
 
 clearButton.addEventListener('click', function() {
     display.innerText = '0';
+
+    firstNumber = '';
+    secondNumber = '';
+    operator = '';
+    result = '';
 });
+
+function calculate() {
+    if (operator === '+') {
+        result = Number(firstNumber) + Number(secondNumber);
+    }
+    
+    if (operator === '-') {
+        result = Number(firstNumber) - Number(secondNumber);
+    }
+
+    if (operator === '/') {
+        result = Number(firstNumber) / Number(secondNumber);
+    }
+
+    if (operator === 'x') {
+        result = Number(firstNumber) * Number(secondNumber);
+    }
+}
