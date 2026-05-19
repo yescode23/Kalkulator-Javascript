@@ -3,6 +3,7 @@ const numberButtons = document.querySelectorAll('.number');
 const operatorButtons = document.querySelectorAll('.operator');
 const clearButton = document.querySelector('.clear');
 const equalsButton = document.querySelector('.equals');
+const deleteButton = document.querySelector('.delete');
 
 let firstNumber = '';
 let secondNumber = '';
@@ -15,7 +16,7 @@ numberButtons.forEach(function(button) {
         if (number === '.' && display.innerText.includes('.')) {
             return;
         }
-        
+
         if (display.innerText === '0') {
             display.innerText = number;
         }
@@ -54,6 +55,14 @@ clearButton.addEventListener('click', function() {
     secondNumber = '';
     operator = '';
     result = '';
+});
+
+deleteButton.addEventListener('click', function() {
+    display.innerText = display.innerText.slice(0, -1);
+    
+    if (display.innerText === '') {
+        display.innerText = '0';
+    }
 });
 
 function calculate() {

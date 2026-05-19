@@ -64,6 +64,15 @@ button:hover {
     background-color: rgb(235, 49, 49);
 }
 
+.delete {
+    background-color: rgb(255, 52, 52);
+    color: white;
+}
+
+.delete:hover {
+    background-color: rgb(235, 49, 49);
+}
+
 .operator {
     background-color: rgb(0, 255, 0);
 }
