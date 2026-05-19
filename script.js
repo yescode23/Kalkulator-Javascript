@@ -4,6 +4,7 @@ const operatorButtons = document.querySelectorAll('.operator');
 const clearButton = document.querySelector('.clear');
 const equalsButton = document.querySelector('.equals');
 const deleteButton = document.querySelector('.delete');
+const percentButton = document.querySelector('.percent');
 
 let firstNumber = '';
 let secondNumber = '';
@@ -59,10 +60,17 @@ clearButton.addEventListener('click', function() {
 
 deleteButton.addEventListener('click', function() {
     display.innerText = display.innerText.slice(0, -1);
-    
+
     if (display.innerText === '') {
         display.innerText = '0';
     }
+});
+
+percentButton.addEventListener('click', function() {
+    const number = Number(display.innerText);
+    const percent = number / 100;
+
+    display.innerText = percent;
 });
 
 function calculate() {
