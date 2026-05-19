@@ -12,9 +12,14 @@ let result = '';
 numberButtons.forEach(function(button) {
     button.addEventListener('click', function() {
         const number = button.innerText;
+        if (number === '.' && display.innerText.includes('.')) {
+            return;
+        }
+        
         if (display.innerText === '0') {
             display.innerText = number;
-        } else {
+        }
+        else {
             display.innerText += number;
         }
     })
